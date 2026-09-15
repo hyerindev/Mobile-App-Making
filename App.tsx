@@ -15,14 +15,14 @@ const App = () => {
     <View style={{ paddingTop: 30 }}>
       <Text style={text_st}>{greet}</Text>
       <Text style={text_st}>{greet}</Text>
-      <View style={{ margin: 10 }}>
+      <View style={{ margin: 10, flexDirection: "row" }}>
         <Button
           title="Press Me"
           onPress={function () {
             setGreet("Hello, Ewha");
           }}
         />
-        <View style={{ height: 10 }}></View>
+        <View style={{ width: 10 }}></View>
         <Button
           title="Touch Me"
           onPress={function () {
