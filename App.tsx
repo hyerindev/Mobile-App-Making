@@ -15,19 +15,21 @@ const App = () => {
     <View style={{ paddingTop: 30 }}>
       <Text style={text_st}>{greet}</Text>
       <Text style={text_st}>{greet}</Text>
-      <Button
-        title="Press Me"
-        onPress={function () {
-          setGreet("Hello, Ewha");
-        }}
-      />
-      <View style={{ height: 10 }}></View>
-      <Button
-        title="Touch Me"
-        onPress={function () {
-          setGreet("Nice to meet you");
-        }}
-      />
+      <View style={{ margin: 10 }}>
+        <Button
+          title="Press Me"
+          onPress={function () {
+            setGreet("Hello, Ewha");
+          }}
+        />
+        <View style={{ height: 10 }}></View>
+        <Button
+          title="Touch Me"
+          onPress={function () {
+            setGreet("Nice to meet you");
+          }}
+        />
+      </View>
     </View>
   );
 };
