@@ -1,30 +1,21 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 
 const ICONS = {
-  cat: require("./assets/cat-icon.png"),
+  cat1: require("./assets/cat-icon.png"),
+  cat2: { uri: "https://reactnative.dev/docs/assets/p_cat2.png" },
 };
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <View style={{ backgroundColor: "cyan" }}>
-        <Text style={{ fontSize: 30 }}>Hello Ewha</Text>
-        <Text style={{ fontSize: 24, color: "blue" }}>Nice to meet you</Text>
-        <StatusBar style="auto" />
-      </View>
-      <Image style={{ width: 200, height: 200 }} source={ICONS["cat"]} />
+    <View>
+      <Text>Hello Ewha</Text>
+      <Text>Nice to meet you</Text>
+      <Text>Nice to meet you</Text>
+      <Text>Nice to meet you</Text>
+      <Image style={{ width: 200, height: 200 }} source={ICONS["cat1"]} />
+      <Image style={{ width: 200, height: 200 }} source={ICONS["cat2"]} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default App;
