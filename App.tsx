@@ -7,7 +7,7 @@ const ICONS = {
 
 const App = () => {
   return (
-    <View>
+    <View style={{ paddingTop: 30 }}>
       <Text>Hello Ewha</Text>
       <Text>Nice to meet you</Text>
       <Text>Nice to meet you</Text>
