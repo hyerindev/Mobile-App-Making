@@ -7,7 +7,10 @@ const ICONS = {
 
 const App = () => {
   return (
-    <ScrollView contentContainerStyle={{ paddingTop: 30 }}>
+    <ScrollView
+      contentContainerStyle={{ borderColor: "red", borderWidth: 10 }}
+      style={{ borderColor: "blue", borderWidth: 10 }}
+    >
       <Text style={{ fontSize: 40, color: "blue" }}>Hello Ewha</Text>
       <Text>Nice to meet you</Text>
       <Text style={{ fontSize: 20 }}>Nice to meet you</Text>
