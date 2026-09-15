@@ -8,10 +8,10 @@ const ICONS = {
 const App = () => {
   return (
     <View style={{ paddingTop: 30 }}>
-      <Text>Hello Ewha</Text>
+      <Text style={{ fontSize: 40, color: "blue" }}>Hello Ewha</Text>
       <Text>Nice to meet you</Text>
-      <Text>Nice to meet you</Text>
-      <Text>Nice to meet you</Text>
+      <Text style={{ fontSize: 20 }}>Nice to meet you</Text>
+      <Text style={{ fontSize: 30 }}>Nice to meet you</Text>
       <Image style={{ width: 200, height: 200 }} source={ICONS["cat1"]} />
       <Image style={{ width: 200, height: 200 }} source={ICONS["cat2"]} />
       <TextInput style={{ height: 40, borderColor: "gray", borderWidth: 1 }} defaultValue="You can type in me" />
