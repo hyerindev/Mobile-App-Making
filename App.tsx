@@ -8,9 +8,15 @@ const ICONS = {
 const App = () => {
   return (
     <View style={{ paddingTop: 30 }}>
-      <Text style={{ fontSize: 40, borderColor: "red", borderWidth: 1, margin: 20 }}>Hello Ewha</Text>
-      <Text style={{ fontSize: 20, borderColor: "red", borderWidth: 1, margin: 20 }}>Nice to meet you</Text>
-      <Text style={{ fontSize: 30, borderColor: "red", borderWidth: 1, margin: 20 }}>Nice to meet you</Text>
+      <Text style={{ fontSize: 40, borderColor: "red", borderWidth: 1, width: 200, paddingLeft: 20 }}>Hello Ewha</Text>
+      <Text style={{ fontSize: 20, borderColor: "red", borderWidth: 1, width: 200, padding: 20 }}>
+        Nice to meet you
+      </Text>
+      <Text
+        style={{ fontSize: 30, borderColor: "red", borderWidth: 1, width: 200, paddingVertical: 20, marginBottom: 30 }}
+      >
+        Nice to meet you
+      </Text>
       <Image style={{ width: 200, height: 200, borderColor: "red", borderWidth: 1 }} source={ICONS["cat1"]} />
     </View>
   );
