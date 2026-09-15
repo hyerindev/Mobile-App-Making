@@ -1,29 +1,33 @@
-import { Text, View, Image, ScrollView } from "react-native";
+import { Text, View, Image } from "react-native";
 
 const ICONS = {
   cat1: require("./assets/cat-icon.png"),
   cat2: { uri: "https://reactnative.dev/docs/assets/p_cat2.png" },
 };
 
+var head_st = {
+  fontSize: 40,
+  color: "blue",
+  backgroundColor: "orange",
+  padding: 10,
+  margin: 10,
+};
+var text_st = {
+  fontSize: 30,
+  backgroundColor: "lightgray",
+  padding: 10,
+  margin: 10,
+};
+var hello = "Nice to meet you";
+
 const App = () => {
   return (
-    <ScrollView
-      contentContainerStyle={{ borderColor: "red", borderWidth: 10 }}
-      style={{ borderColor: "blue", borderWidth: 10, paddingTop: 30 }}
-    >
-      <Text style={{ fontSize: 40, color: "blue" }}>Hello Ewha</Text>
-      <Text>Nice to meet you</Text>
-      <Text style={{ fontSize: 20 }}>Nice to meet you</Text>
-      <Text style={{ fontSize: 30 }}>Nice to meet you</Text>
+    <View style={{ paddingTop: 30 }}>
+      <Text style={head_st}>Hello Ewha</Text>
+      <Text style={text_st}>{hello}</Text>
+      <Text style={text_st}>{hello}</Text>
       <Image style={{ width: 200, height: 200 }} source={ICONS["cat1"]} />
-      <Image style={{ width: 200, height: 200 }} source={ICONS["cat2"]} />
-      <Text style={{ fontSize: 20 }}>Nice to meet you</Text>
-      <Text style={{ fontSize: 30 }}>Nice to meet you</Text>
-      <Image style={{ width: 200, height: 200 }} source={ICONS["cat1"]} />
-      <Text style={{ fontSize: 20 }}>Nice to meet you</Text>
-      <Text style={{ fontSize: 30 }}>Nice to meet you</Text>
-      <Image style={{ width: 200, height: 200 }} source={ICONS["cat1"]} />
-    </ScrollView>
+    </View>
   );
 };
 
