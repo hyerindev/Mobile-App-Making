@@ -9,22 +9,23 @@ var text_st = {
 };
 
 const App = () => {
-  const [val, setVal] = useState(0);
+  const [greet, setGreet] = useState("Hi");
 
   return (
     <View style={{ paddingTop: 30 }}>
-      <Text style={text_st}>{val}</Text>
+      <Text style={text_st}>{greet}</Text>
+      <Text style={text_st}>{greet}</Text>
       <Button
-        title="Count Up"
+        title="Press Me"
         onPress={function () {
-          setVal(1);
+          setGreet("Hello, Ewha");
         }}
       />
       <View style={{ height: 10 }}></View>
       <Button
-        title="Count Down"
+        title="Touch Me"
         onPress={function () {
-          setVal(2);
+          setGreet("Nice to meet you");
         }}
       />
     </View>
