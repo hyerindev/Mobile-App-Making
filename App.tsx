@@ -13,22 +13,22 @@ var text_st = {
   padding: 10,
   margin: 10,
 };
-var hello = "Nice to meet you";
+var hello = "Hello";
 
 function action() {
-  alert("Do something");
+  hello = "Nice to meet you";
 }
 
 const App = () => {
   return (
     <View style={{ paddingTop: 30 }}>
-      <Text style={head_st}>Hello Ewha</Text>
+      <Text style={head_st}>{hello}</Text>
       <Text style={text_st}>{hello}</Text>
       <Text style={text_st}>{hello}</Text>
       <Button
         title="Press Me"
         onPress={function () {
-          alert("Trapped");
+          hello = "Hello, Ewha";
         }}
       />
       <View style={{ height: 10 }}></View>
