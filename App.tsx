@@ -1,9 +1,4 @@
-import { Text, View, Image } from "react-native";
-
-const ICONS = {
-  cat1: require("./assets/cat-icon.png"),
-  cat2: { uri: "https://reactnative.dev/docs/assets/p_cat2.png" },
-};
+import { Text, View, Button } from "react-native";
 
 var head_st = {
   fontSize: 40,
@@ -20,13 +15,24 @@ var text_st = {
 };
 var hello = "Nice to meet you";
 
+function action() {
+  alert("Do something");
+}
+
 const App = () => {
   return (
     <View style={{ paddingTop: 30 }}>
       <Text style={head_st}>Hello Ewha</Text>
       <Text style={text_st}>{hello}</Text>
       <Text style={text_st}>{hello}</Text>
-      <Image style={{ width: 200, height: 200 }} source={ICONS["cat1"]} />
+      <Button
+        title="Press Me"
+        onPress={function () {
+          alert("Trapped");
+        }}
+      />
+      <View style={{ height: 10 }}></View>
+      <Button title="Touch Me" onPress={action} />
     </View>
   );
 };
