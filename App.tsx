@@ -20,12 +20,7 @@ const App = () => {
   return (
     <View style={{ paddingTop: 30 }}>
       <Text style={text_st}>Hello, {name}</Text>
-      <TextInput
-        style={input_st}
-        onChangeText={function (t) {
-          setName(t);
-        }}
-      />
+      <TextInput style={input_st} onChangeText={setName} />
     </View>
   );
 };
