@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 const App = () => {
   return (
@@ -9,6 +9,7 @@ const App = () => {
         <Text style={{ fontSize: 24, color: "blue" }}>Nice to meet you</Text>
         <StatusBar style="auto" />
       </View>
+      <Image style={{ width: 200, height: 200 }} source={require("./assets/cat-icon.png")} />
     </View>
   );
 };
