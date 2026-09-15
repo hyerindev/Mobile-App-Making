@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, View, Button, TextInput } from "react-native";
+import { Text, View, Button } from "react-native";
 
 var text_st = {
   fontSize: 30,
@@ -7,36 +7,25 @@ var text_st = {
   padding: 10,
   margin: 10,
 };
-var input_st = {
-  fontSize: 30,
-  borderWidth: 1,
-  padding: 10,
-  margin: 10,
-};
 
 const App = () => {
-  const [greet, setGreet] = useState("Hi");
-  const [name, setName] = useState("Name");
+  const [val, setVal] = useState(0);
 
   return (
     <View style={{ paddingTop: 30 }}>
-      <Text style={text_st}>
-        {greet}, {name}
-      </Text>
-      <TextInput style={input_st} onChangeText={setName} />
-
-      <View style={{ margin: 10, flexDirection: "row-reverse" }}>
+      <Text style={text_st}>{val}</Text>
+      <View style={{ margin: 20 }}>
         <Button
-          title="Nice"
+          title="Count Up"
           onPress={function () {
-            setGreet("Nice to meet you");
+            setVal(val + 1);
           }}
         />
-        <View style={{ width: 10 }}></View>
+        <View style={{ height: 10 }}></View>
         <Button
-          title="Hello"
+          title="Count Down"
           onPress={function () {
-            setGreet("Hello");
+            setVal(val - 1);
           }}
         />
       </View>
