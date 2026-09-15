@@ -1,4 +1,4 @@
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, TextInput } from "react-native";
 
 const ICONS = {
   cat1: require("./assets/cat-icon.png"),
@@ -14,6 +14,7 @@ const App = () => {
       <Text>Nice to meet you</Text>
       <Image style={{ width: 200, height: 200 }} source={ICONS["cat1"]} />
       <Image style={{ width: 200, height: 200 }} source={ICONS["cat2"]} />
+      <TextInput style={{ height: 40, borderColor: "gray", borderWidth: 1 }} defaultValue="You can type in me" />
     </View>
   );
 };
