@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Text, View, Button } from "react-native";
 
 var head_st = {
@@ -13,13 +14,14 @@ var text_st = {
   padding: 10,
   margin: 10,
 };
-var hello = "Hello";
-
-function action() {
-  hello = "Nice to meet you";
-}
 
 const App = () => {
+  const [hello, setHello] = useState("Hello");
+
+  function action() {
+    setHello("Nice to meet you");
+  }
+
   return (
     <View style={{ paddingTop: 30 }}>
       <Text style={head_st}>{hello}</Text>
@@ -28,7 +30,7 @@ const App = () => {
       <Button
         title="Press Me"
         onPress={function () {
-          hello = "Hello, Ewha";
+          setHello("Hello, Ewha");
         }}
       />
       <View style={{ height: 10 }}></View>
