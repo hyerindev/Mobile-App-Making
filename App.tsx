@@ -4,9 +4,11 @@ import { StyleSheet, Text, View } from "react-native";
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 30 }}>Hello Ewha</Text>
-      <Text style={{ fontSize: 24, color: "blue" }}>Nice to meet you</Text>
-      <StatusBar style="auto" />
+      <View style={{ backgroundColor: "cyan" }}>
+        <Text style={{ fontSize: 30 }}>Hello Ewha</Text>
+        <Text style={{ fontSize: 24, color: "blue" }}>Nice to meet you</Text>
+        <StatusBar style="auto" />
+      </View>
     </View>
   );
 };
