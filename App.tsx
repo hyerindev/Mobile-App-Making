@@ -15,7 +15,7 @@ const App = () => {
     <View style={{ paddingTop: 30 }}>
       <Text style={text_st}>{greet}</Text>
       <Text style={text_st}>{greet}</Text>
-      <View style={{ margin: 10, flexDirection: "row" }}>
+      <View style={{ margin: 10, flexDirection: "row-reverse" }}>
         <Button
           title="Press Me"
           onPress={function () {
