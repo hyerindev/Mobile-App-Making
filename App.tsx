@@ -1,6 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
 
+const iconCat = require("./assets/cat-icon.png");
+
 const App = () => {
   return (
     <View style={styles.container}>
@@ -9,7 +11,7 @@ const App = () => {
         <Text style={{ fontSize: 24, color: "blue" }}>Nice to meet you</Text>
         <StatusBar style="auto" />
       </View>
-      <Image style={{ width: 200, height: 200 }} source={require("./assets/cat-icon.png")} />
+      <Image style={{ width: 200, height: 200 }} source={iconCat} />
     </View>
   );
 };
