@@ -1,51 +1,15 @@
-import { useState } from "react";
-import { TextStyle, Text, View, Button } from "react-native";
-
-const text_var: TextStyle = {
-  padding: 10,
-  backgroundColor: "lightgray",
-  fontSize: 30,
-};
+import { View, ScrollView } from "react-native";
 
 const App = () => {
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
-
   return (
-    <View style={{ overflow: "visible", paddingTop: 30, gap: 20 }}>
-      <Text style={text_var}>
-        {a} × {b} ＝ {a * b}
-      </Text>
-      <View style={{ flexDirection: "row", gap: 20 }}>
-        <View style={{ width: 50, gap: 20 }}>
-          <Button
-            title="+"
-            onPress={() => {
-              setA((prev) => prev + 1);
-            }}
-          />
-          <Button
-            title="-"
-            onPress={() => {
-              setA((prev) => prev - 1);
-            }}
-          />
-        </View>
-        <View style={{ width: 50, gap: 20 }}>
-          <Button
-            title="+"
-            onPress={() => {
-              setB((prev) => prev + 1);
-            }}
-          />
-          <Button
-            title="-"
-            onPress={() => {
-              setB((prev) => prev - 1);
-            }}
-          />
-        </View>
-      </View>
+    <View style={{ paddingTop: 30 }}>
+      <ScrollView horizontal style={{ margin: 10 }}>
+        <View style={{ backgroundColor: "red", width: 100, height: 100 }} />
+        <View style={{ backgroundColor: "blue", width: 100, height: 100 }} />
+        <View style={{ backgroundColor: "green", width: 100, height: 100 }} />
+        <View style={{ backgroundColor: "lightgray", width: 100, height: 100 }} />
+        <View style={{ backgroundColor: "yellow", width: 100, height: 100 }} />
+      </ScrollView>
     </View>
   );
 };
