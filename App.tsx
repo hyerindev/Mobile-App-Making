@@ -1,5 +1,5 @@
 import type { TextStyle } from "react-native";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 
 const commonStyle: TextStyle = {
@@ -16,14 +16,24 @@ const inputStyle: TextStyle = {
 };
 
 const App = () => {
-  const formRef = useRef<number>(0);
-  const [total, setTotal] = useState<number>(0);
+  const [val, setVal] = useState<number>(0);
+  const [step, setStep] = useState<number>(5);
 
   return (
-    <View style={{ padding: 12, paddingTop: 36, gap: 16 }}>
-      <Text style={textStyle}>{total}</Text>
-      <TextInput style={inputStyle} onChangeText={(input) => (formRef.current = Number(input))} />
-      <Button title="PLUS" onPress={() => setTotal((prev) => prev + formRef.current)} />
+    <View style={{ padding: 12, paddingTop: 36, gap: 20 }}>
+      <Text style={textStyle}>{val}</Text>
+      <View>
+        <Text style={{ fontSize: 28, fontWeight: "bold" }}>STEP</Text>
+        <TextInput style={inputStyle} onChangeText={(input) => setStep(Number(input))} />
+      </View>
+      <View style={{ gap: 8 }}>
+        <Button title="+1" onPress={() => setVal((prev) => prev + 1)} />
+        <Button title="-1" onPress={() => setVal((prev) => prev - 1)} />
+      </View>
+      <View style={{ gap: 8 }}>
+        <Button title={"+" + step} onPress={() => setVal((prev) => prev + step)} />
+        <Button title={"-" + step} onPress={() => setVal((prev) => prev - step)} />
+      </View>
     </View>
   );
 };
