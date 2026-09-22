@@ -14,11 +14,11 @@ const App = () => {
   return (
     <View style={{ padding: 12, paddingTop: 36, gap: 20 }}>
       <Text style={textStyle}>{val}</Text>
-      <View style={{ gap: 8 }}>
+      <View style={{ flexDirection: "row", gap: 8 }}>
         <Button title="+1" onPress={() => setVal((prev) => prev + 1)} />
         <Button title="-1" onPress={() => setVal((prev) => prev - 1)} />
       </View>
-      <View style={{ gap: 8 }}>
+      <View style={{ flexDirection: "row", gap: 8 }}>
         <Button title="+5" onPress={() => setVal((prev) => prev + 5)} />
         <Button title="-5" onPress={() => setVal((prev) => prev - 5)} />
       </View>
