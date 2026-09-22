@@ -9,13 +9,19 @@ const textStyle: TextStyle = {
 
 const App = () => {
   const [fontSize, setFontSize] = useState<number>(24);
+  const [fontColor, setFontColor] = useState<string>("black");
 
   return (
     <View style={{ padding: 12, paddingTop: 36, gap: 20 }}>
-      <Text style={{ ...textStyle, fontSize: fontSize }}>Using State in Style!</Text>
+      <Text style={{ ...textStyle, fontSize: fontSize, color: fontColor }}>Using State in Style!</Text>
       <View style={{ gap: 8 }}>
         <Button title="+1" onPress={() => setFontSize((prev) => prev + 1)} />
         <Button title="-1" onPress={() => setFontSize((prev) => prev - 1)} />
+      </View>
+      <View style={{ gap: 8 }}>
+        <Button title="RED" onPress={() => setFontColor("red")} />
+        <Button title="BLUE" onPress={() => setFontColor("blue")} />
+        <Button title="WHITE" onPress={() => setFontColor("white")} />
       </View>
     </View>
   );
