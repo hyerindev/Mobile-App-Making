@@ -1,5 +1,5 @@
 import type { TextStyle } from "react-native";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 
 const commonStyle: TextStyle = {
@@ -16,24 +16,14 @@ const inputStyle: TextStyle = {
 };
 
 const App = () => {
-  const [val, setVal] = useState<number>(0);
-  const [nb, setNb] = useState<number>(0);
+  const formRef = useRef<number>(0);
+  const [total, setTotal] = useState<number>(0);
 
   return (
     <View style={{ padding: 12, paddingTop: 36, gap: 16 }}>
-      <Text style={textStyle}>{val}</Text>
-      <TextInput
-        style={inputStyle}
-        onChangeText={(input) => {
-          setNb(Number(input));
-        }}
-      />
-      <Button
-        title="PLUS"
-        onPress={() => {
-          setVal(val + nb);
-        }}
-      />
+      <Text style={textStyle}>{total}</Text>
+      <TextInput style={inputStyle} onChangeText={(input) => (formRef.current = Number(input))} />
+      <Button title="PLUS" onPress={() => setTotal((prev) => prev + formRef.current)} />
     </View>
   );
 };
