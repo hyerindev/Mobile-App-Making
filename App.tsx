@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { Text, View, Button } from "react-native";
+import { TextStyle, Text, View, Button } from "react-native";
 
-var text_st = {
-  fontSize: 30,
-  backgroundColor: "lightgray",
+const text_var: TextStyle = {
   padding: 10,
-  margin: 10,
+  textAlign: "center",
+  backgroundColor: "lightgray",
+  fontSize: 30,
+};
+const text_static: TextStyle = {
+  padding: 10,
+  fontSize: 30,
 };
 
 const App = () => {
@@ -13,9 +17,9 @@ const App = () => {
   const [b, setB] = useState(0);
 
   return (
-    <View style={{ paddingTop: 30, flexDirection: "row", gap: 20 }}>
-      <View style={{ gap: 20 }}>
-        <Text style={text_st}>{a}</Text>
+    <View style={{ overflow: "visible", paddingTop: 30, flexDirection: "row", gap: 5 }}>
+      <View style={{ overflow: "visible", width: 80, gap: 20 }}>
+        <Text style={text_var}>{a}</Text>
         <Button
           title="+"
           onPress={function () {
@@ -29,8 +33,9 @@ const App = () => {
           }}
         />
       </View>
-      <View style={{ gap: 20 }}>
-        <Text style={text_st}>{b}</Text>
+      <Text style={text_static}>×</Text>
+      <View style={{ overflow: "visible", width: 80, gap: 20 }}>
+        <Text style={text_var}>{b}</Text>
         <Button
           title="+"
           onPress={function () {
@@ -44,6 +49,8 @@ const App = () => {
           }}
         />
       </View>
+      <Text style={text_static}>＝</Text>
+      <Text style={{ ...text_var, height: 60 }}>{a * b}</Text>
     </View>
   );
 };
