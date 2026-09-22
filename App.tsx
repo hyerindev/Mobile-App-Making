@@ -9,23 +9,38 @@ var text_st = {
 };
 
 const App = () => {
-  const [val, setVal] = useState(0);
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
 
   return (
-    <View style={{ paddingTop: 30 }}>
-      <Text style={text_st}>{val}</Text>
-      <View style={{ margin: 20 }}>
+    <View style={{ paddingTop: 30, flexDirection: "row", gap: 20 }}>
+      <View style={{ gap: 20 }}>
+        <Text style={text_st}>{a}</Text>
         <Button
-          title="Count Up"
+          title="+"
           onPress={function () {
-            setVal((prev) => prev + 1);
+            setA((prev) => prev + 1);
           }}
         />
-        <View style={{ height: 10 }}></View>
         <Button
-          title="Count Down"
+          title="-"
           onPress={function () {
-            setVal((prev) => prev - 1);
+            setA((prev) => prev - 1);
+          }}
+        />
+      </View>
+      <View style={{ gap: 20 }}>
+        <Text style={text_st}>{b}</Text>
+        <Button
+          title="+"
+          onPress={function () {
+            setB((prev) => prev + 1);
+          }}
+        />
+        <Button
+          title="-"
+          onPress={function () {
+            setB((prev) => prev - 1);
           }}
         />
       </View>
