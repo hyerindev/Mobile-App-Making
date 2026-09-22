@@ -1,30 +1,27 @@
 import type { TextStyle } from "react-native";
 import { useState } from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, Button } from "react-native";
 
-const commonStyle: TextStyle = {
-  margin: 10,
-  padding: 10,
-  fontSize: 24,
-};
 const textStyle: TextStyle = {
-  ...commonStyle,
+  padding: 10,
   backgroundColor: "lightgray",
-};
-const inputStyle: TextStyle = {
-  ...commonStyle,
-  borderWidth: 1,
+  fontSize: 30,
 };
 
 const App = () => {
-  const [name, setName] = useState<string>("");
-  const greeting = "Hello, " + name;
+  const [val, setVal] = useState<number>(0);
 
   return (
-    <View style={{ paddingTop: 30 }}>
-      <Text style={textStyle}>{greeting}</Text>
-      <TextInput style={inputStyle} onChangeText={setName} />
-      <Text style={{ fontSize: 12, margin: 10 }}>글자 수: {greeting.length}</Text>
+    <View style={{ padding: 12, paddingTop: 36, gap: 20 }}>
+      <Text style={textStyle}>{val}</Text>
+      <View style={{ gap: 8 }}>
+        <Button title="+1" onPress={() => setVal((prev) => prev + 1)} />
+        <Button title="-1" onPress={() => setVal((prev) => prev - 1)} />
+      </View>
+      <View style={{ gap: 8 }}>
+        <Button title="+5" onPress={() => setVal((prev) => prev + 5)} />
+        <Button title="-5" onPress={() => setVal((prev) => prev - 5)} />
+      </View>
     </View>
   );
 };
