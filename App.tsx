@@ -1,28 +1,20 @@
-import type { TextStyle } from "react-native";
 import { useState } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Image, Button } from "react-native";
 
-const textStyle: TextStyle = {
-  padding: 10,
-  backgroundColor: "lightgray",
+const IMAGES = {
+  cat: require("./assets/cat-icon.png"),
 };
 
 const App = () => {
-  const [fontSize, setFontSize] = useState<number>(24);
-  const [fontColor, setFontColor] = useState<string>("black");
+  const [width, setWidth] = useState<number>(100);
 
   return (
-    <View style={{ padding: 12, paddingTop: 36, gap: 20 }}>
-      <Text style={{ ...textStyle, fontSize: fontSize, color: fontColor }}>Using State in Style!</Text>
-      <View style={{ gap: 8 }}>
-        <Button title="+1" onPress={() => setFontSize((prev) => prev + 1)} />
-        <Button title="-1" onPress={() => setFontSize((prev) => prev - 1)} />
+    <View style={{ padding: 12, paddingTop: 36, gap: 24 }}>
+      <View style={{ flexDirection: "row", gap: 8 }}>
+        <Button title="크게" onPress={() => setWidth((prev) => prev + 10)} />
+        <Button title="작게" onPress={() => setWidth((prev) => prev - 10)} />
       </View>
-      <View style={{ gap: 8 }}>
-        <Button title="RED" onPress={() => setFontColor("red")} />
-        <Button title="BLUE" onPress={() => setFontColor("blue")} />
-        <Button title="WHITE" onPress={() => setFontColor("white")} />
-      </View>
+      <Image source={IMAGES["cat"]} style={{ width: width, height: width }} resizeMode="contain" />
     </View>
   );
 };
