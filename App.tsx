@@ -18,12 +18,13 @@ const inputStyle: TextStyle = {
 
 const App = () => {
   const [name, setName] = useState<string>("");
+  const greeting = "Hello, " + name;
 
   return (
     <View style={{ paddingTop: 30 }}>
-      <Text style={textStyle}>Hello, {name}</Text>
+      <Text style={textStyle}>{greeting}</Text>
       <TextInput style={inputStyle} onChangeText={setName} />
-      <Text style={{ fontSize: 12, margin: 10 }}>글자 수: {("Hello, " + name).length}</Text>
+      <Text style={{ fontSize: 12, margin: 10 }}>글자 수: {greeting.length}</Text>
     </View>
   );
 };
