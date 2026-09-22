@@ -18,14 +18,14 @@ const App = () => {
         <Button
           title="Count Up"
           onPress={function () {
-            setVal(val + 1);
+            setVal((prev) => prev + 1);
           }}
         />
         <View style={{ height: 10 }}></View>
         <Button
           title="Count Down"
           onPress={function () {
-            setVal(val - 1);
+            setVal((prev) => prev - 1);
           }}
         />
       </View>
