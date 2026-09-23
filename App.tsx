@@ -1,20 +1,24 @@
+import type { TextStyle } from "react-native";
 import { useState } from "react";
-import { View, Image, Button } from "react-native";
+import { View, Text, Button } from "react-native";
 
-const IMAGES = {
-  cat: require("./assets/cat-icon.png"),
+const textStyle: TextStyle = {
+  margin: 10,
+  padding: 10,
+  backgroundColor: "lightgray",
+  fontSize: 30,
 };
 
 const App = () => {
-  const [width, setWidth] = useState<number>(100);
+  const [total, setTotal] = useState<number>(0);
 
   return (
-    <View style={{ padding: 12, paddingTop: 36, gap: 24 }}>
-      <View style={{ flexDirection: "row", gap: 8 }}>
-        <Button title="크게" onPress={() => setWidth((prev) => prev + 10)} />
-        <Button title="작게" onPress={() => setWidth((prev) => prev - 10)} />
+    <View style={{ paddingTop: 30 }}>
+      <Text style={textStyle}>{total}</Text>
+      <View style={{ gap: 10, margin: 20 }}>
+        <Button title="Count Up" onPress={() => setTotal((prev) => prev + 1)} />
+        <Button title="Count Down" onPress={() => setTotal((prev) => prev - 1)} />
       </View>
-      <Image source={IMAGES["cat"]} style={{ width: width, height: width }} resizeMode="contain" />
     </View>
   );
 };
