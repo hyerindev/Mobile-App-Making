@@ -10,14 +10,20 @@ const textStyle: TextStyle = {
 };
 
 const App = () => {
-  const [total, setTotal] = useState<number>(0);
+  const [a, setA] = useState<number>(0);
+  const [b, setB] = useState<number>(0);
 
   return (
-    <View style={{ paddingTop: 30 }}>
-      <Text style={textStyle}>{total}</Text>
-      <View style={{ gap: 10, margin: 20 }}>
-        <Button title="Count Up" onPress={() => setTotal((prev) => prev + 1)} />
-        <Button title="Count Down" onPress={() => setTotal((prev) => prev - 1)} />
+    <View style={{ flexDirection: "row", gap: 20, paddingTop: 30 }}>
+      <View style={{ gap: 20 }}>
+        <Text style={textStyle}>{a}</Text>
+        <Button title="+" onPress={() => setA((prev) => prev + 1)} />
+        <Button title="-" onPress={() => setA((prev) => prev - 1)} />
+      </View>
+      <View style={{ gap: 20 }}>
+        <Text style={textStyle}>{b}</Text>
+        <Button title="+" onPress={() => setB((prev) => prev + 1)} />
+        <Button title="-" onPress={() => setB((prev) => prev - 1)} />
       </View>
     </View>
   );
