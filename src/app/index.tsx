@@ -1,19 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { textStyle } from "@/styles/text";
+import { router } from "expo-router";
+import { Button, Text, View } from "react-native";
 
 const Index = () => {
   return (
-    <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
+    <View style={{ gap: 10 }}>
+      <Text style={textStyle}>Home Screen</Text>
+      <Button title="About" onPress={() => router.navigate("/about")} />
+      <Button title="Hello" onPress={() => router.navigate("/hello")} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default Index;
