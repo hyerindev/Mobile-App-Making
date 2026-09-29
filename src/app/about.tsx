@@ -1,17 +1,8 @@
 import { body1 } from "@/styles/text";
-import { Image, Text, View } from "react-native";
-
-const IMAGES = {
-  cat: require("@/assets/cat-icon.png"),
-};
+import { Text } from "react-native";
 
 const About = () => {
-  return (
-    <View>
-      <Text style={body1}>This is About the app.</Text>
-      <Image source={IMAGES["cat"]} style={{ width: 200, height: 200 }} />
-    </View>
-  );
+  return <Text style={body1}>This is About the app.</Text>;
 };
 
 export default About;
