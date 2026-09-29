@@ -1,15 +1,15 @@
 import type { TextStyle } from "react-native";
 
-const textStyle: TextStyle = {
+const body1: TextStyle = {
   margin: 10,
   fontSize: 20,
 };
 
-const inputStyle: TextStyle = {
+const inputEnabled: TextStyle = {
   margin: 10,
   padding: 10,
   borderWidth: 1,
   fontSize: 30,
 };
 
-export { inputStyle, textStyle };
+export { body1, inputEnabled };

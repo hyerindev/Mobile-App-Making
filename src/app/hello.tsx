@@ -1,4 +1,4 @@
-import { inputStyle, textStyle } from "@/styles/text";
+import { body1, inputEnabled } from "@/styles/text";
 import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 
@@ -8,8 +8,8 @@ const Hello = () => {
 
   return (
     <View>
-      <Text style={textStyle}>{greet + ", " + name}</Text>
-      <TextInput style={inputStyle} onChangeText={setName} />
+      <Text style={body1}>{greet + ", " + name}</Text>
+      <TextInput style={inputEnabled} onChangeText={setName} />
       <View style={{ flexDirection: "row-reverse", gap: 10, margin: 10 }}>
         <Button title="Nice" onPress={() => setGreet("Nice to meet you")} />
         <Button title="Hello" onPress={() => setGreet("Hello")} />
