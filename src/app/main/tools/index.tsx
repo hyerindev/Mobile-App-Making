@@ -7,8 +7,8 @@ const Index = () => {
     <View>
       <Text style={body1}>Apps made in Class</Text>
       <View style={{ gap: 8 }}>
-        <Button title="Hello" onPress={() => router.navigate("/tools/hello")} />
-        <Button title="구구단" onPress={() => router.navigate("/tools/gugudan")} />
+        <Button title="Hello" onPress={() => router.navigate("/main/tools/hello")} />
+        <Button title="구구단" onPress={() => router.navigate("/main/tools/gugudan")} />
       </View>
     </View>
   );
