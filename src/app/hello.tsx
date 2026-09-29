@@ -8,9 +8,7 @@ const Hello = () => {
 
   return (
     <View>
-      <Text style={textStyle}>
-        {greet}, {name}
-      </Text>
+      <Text style={textStyle}>{greet + ", " + name}</Text>
       <TextInput style={inputStyle} onChangeText={setName} />
       <View style={{ flexDirection: "row-reverse", gap: 10, margin: 10 }}>
         <Button title="Nice" onPress={() => setGreet("Nice to meet you")} />
