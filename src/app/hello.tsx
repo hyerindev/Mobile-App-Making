@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 
 const Hello = () => {
-  const [greet, setGreet] = useState("Hi");
-  const [name, setName] = useState("Name");
+  const [greet, setGreet] = useState<string>("Hi");
+  const [name, setName] = useState<string>("Name");
 
   return (
     <View>
