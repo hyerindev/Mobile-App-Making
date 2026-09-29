@@ -1,16 +1,39 @@
-import { Stack } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import { Image, Text } from "react-native";
 
 const RootLayout = () => {
   return (
-    <Stack screenOptions={{ headerStyle: { backgroundColor: "black" }, headerTintColor: "white" }}>
-      <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
-      <Stack.Screen name="about" options={{ title: "About" }} />
-      <Stack.Screen name="hello" options={{ title: "Hello" }} />
-      <Stack.Screen
-        name="gugudan"
-        options={{ title: "구구단", headerStyle: { backgroundColor: "red" }, headerTintColor: "black" }}
+    <Tabs>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+          tabBarIcon: () => {
+            return <Text style={{ fontSize: 24 }}>🏠</Text>;
+          },
+        }}
       />
-    </Stack>
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: "About",
+          tabBarIcon: () => {
+            return <Image source={require("@/assets/cat-icon.png")} style={{ width: 24, height: 24 }} />;
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="hello"
+        options={{
+          title: "Hello",
+          tabBarIcon: () => {
+            return <Ionicons name="home" size={24} color="gray" />;
+          },
+        }}
+      />
+      <Tabs.Screen name="gugudan" options={{ title: "구구단" }} />
+    </Tabs>
   );
 };
 
