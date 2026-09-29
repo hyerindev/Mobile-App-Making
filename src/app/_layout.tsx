@@ -1,13 +1,13 @@
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 
 const RootLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ title: "Home" }} />
-      <Stack.Screen name="about" options={{ title: "About" }} />
-      <Stack.Screen name="hello" options={{ title: "Hello" }} />
-      <Stack.Screen name="gugudan" options={{ title: "구구단" }} />
-    </Stack>
+    <Tabs>
+      <Tabs.Screen name="index" options={{ title: "Home" }} />
+      <Tabs.Screen name="about" options={{ title: "About" }} />
+      <Tabs.Screen name="hello" options={{ title: "Hello" }} />
+      <Tabs.Screen name="gugudan" options={{ title: "구구단" }} />
+    </Tabs>
   );
 };
 
