@@ -28,11 +28,19 @@ const RootLayout = () => {
         options={{
           title: "Hello",
           tabBarIcon: () => {
-            return <Ionicons name="home" size={24} color="gray" />;
+            return <Ionicons name="book" size={24} color="gray" />;
           },
         }}
       />
-      <Tabs.Screen name="gugudan" options={{ title: "구구단" }} />
+      <Tabs.Screen
+        name="gugudan"
+        options={{
+          title: "구구단",
+          tabBarIcon: () => {
+            return <Ionicons name="calculator" size={24} color="gray" />;
+          },
+        }}
+      />
     </Tabs>
   );
 };
