@@ -1,11 +1,13 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 const Index = () => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: "red" }} />
       <View style={{ flex: 2, backgroundColor: "yellow" }} />
-      <View style={{ flex: 3, width: "50%", backgroundColor: "green" }} />
+      <View style={{ flex: 3, backgroundColor: "green" }} />
+      <Text style={{ fontSize: 50 }}>ABC</Text>
+      <Text style={{ fontSize: 80 }}>ABC</Text>
     </View>
   );
 };
