@@ -26,6 +26,14 @@ const Index = () => {
     {} as Record<string, ReturnType<typeof useAudioPlayer>>,
   );
 
+  function play(note: keyof typeof players) {
+    console.log("Playing Sound: " + note);
+    players[note].seekTo(0);
+    players[note].play();
+  }
+
+  play("p00");
+
   return (
     <View>
       <Text>Edit src/app/index.tsx to edit this screen.</Text>
