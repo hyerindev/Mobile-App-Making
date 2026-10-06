@@ -1,5 +1,5 @@
 import { useAudioPlayer } from "expo-audio";
-import { Button, View } from "react-native";
+import { Text, View } from "react-native";
 
 const AUDIO_SOURCES = {
   p00: require("@/assets/note00.mp3"),
@@ -34,10 +34,18 @@ const Index = () => {
 
   return (
     <View style={{ marginTop: 30 }}>
-      <Button title="DO" onPress={() => play("p00")} />
-      <Button title="RE" onPress={() => play("p02")} />
-      <Button title="MI" onPress={() => play("p04")} />
-      <Button title="FA" onPress={() => play("p05")} />
+      <View onTouchStart={() => play("p00")}>
+        <Text style={{ fontSize: 28 }}>DO</Text>
+      </View>
+      <View onTouchStart={() => play("p02")}>
+        <Text style={{ fontSize: 28 }}>RE</Text>
+      </View>
+      <View onTouchStart={() => play("p04")}>
+        <Text style={{ fontSize: 28 }}>MI</Text>
+      </View>
+      <View onTouchStart={() => play("p05")}>
+        <Text style={{ fontSize: 28 }}>FA</Text>
+      </View>
     </View>
   );
 };
