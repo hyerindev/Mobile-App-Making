@@ -1,6 +1,5 @@
 import { useAudioPlayer } from "expo-audio";
 import { useState } from "react";
-import type { ViewStyle } from "react-native";
 import { ImageBackground, View } from "react-native";
 
 const IMAGE = {
@@ -23,12 +22,6 @@ const SOUNDS = [
 ] as const;
 const WHITE_KEYS = [0, 2, 4, 5, 7, 9, 11, 12] as const;
 
-const pianoStyle: ViewStyle = {
-  flex: 1,
-  margin: 5,
-};
-const onWhite: string = "rgba(100, 100, 100, 0.3)";
-
 const Index = () => {
   const players = SOUNDS.map((src) => useAudioPlayer(src));
   const [k00, setk00] = useState<string>("transparent");
@@ -43,7 +36,11 @@ const Index = () => {
     <View style={{ flex: 1 }}>
       <ImageBackground style={{ width: "100%", height: "100%" }} resizeMode="stretch" source={IMAGE["keyboard"]}>
         {WHITE_KEYS.map((i) => (
-          <View key={i} style={pianoStyle} onTouchStart={() => play(i)} />
+          <View
+            key={i}
+            style={{ flex: 1, margin: 5, backgroundColor: "rgba(100, 100, 100, 0.3)" }}
+            onTouchStart={() => play(i)}
+          />
         ))}
       </ImageBackground>
     </View>
