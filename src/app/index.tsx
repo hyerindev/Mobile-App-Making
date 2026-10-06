@@ -5,7 +5,7 @@ import { ImageBackground, View } from "react-native";
 
 const IMAGE = {
   keyboard: require("@/assets/keyboard.png"),
-};
+} as const;
 const AUDIO_SOURCES = {
   p00: require("@/assets/note00.mp3"),
   p01: require("@/assets/note01.mp3"),
@@ -20,7 +20,8 @@ const AUDIO_SOURCES = {
   p10: require("@/assets/note10.mp3"),
   p11: require("@/assets/note11.mp3"),
   p12: require("@/assets/note12.mp3"),
-};
+} as const;
+const WHITE_KEYS = ["p00", "p02", "p04", "p05", "p07", "p09", "p11", "p12"] as const;
 
 const pianoStyle: ViewStyle = {
   flex: 1,
@@ -48,21 +49,9 @@ const Index = () => {
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground style={{ width: "100%", height: "100%" }} resizeMode="stretch" source={IMAGE["keyboard"]}>
-        <View
-          style={{ ...pianoStyle, backgroundColor: k00 }}
-          onTouchStart={() => {
-            play("p00");
-            setk00(onWhite);
-          }}
-          onTouchEnd={() => setk00("transparent")}
-        />
-        <View style={pianoStyle} onTouchStart={() => play("p02")} />
-        <View style={pianoStyle} onTouchStart={() => play("p04")} />
-        <View style={pianoStyle} onTouchStart={() => play("p05")} />
-        <View style={pianoStyle} onTouchStart={() => play("p07")} />
-        <View style={pianoStyle} onTouchStart={() => play("p09")} />
-        <View style={pianoStyle} onTouchStart={() => play("p11")} />
-        <View style={pianoStyle} onTouchStart={() => play("p12")} />
+        {WHITE_KEYS.map((note) => (
+          <View key={note} style={pianoStyle} onTouchStart={() => play(note)} />
+        ))}
       </ImageBackground>
     </View>
   );
