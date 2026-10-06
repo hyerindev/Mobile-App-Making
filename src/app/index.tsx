@@ -1,11 +1,23 @@
+import type { ViewStyle } from "react-native";
 import { View } from "react-native";
+
+const pianoStyle: ViewStyle = {
+  flex: 1,
+  margin: 5,
+  backgroundColor: "rgba(100,100,100)",
+};
 
 const Index = () => {
   return (
-    <View style={{ flex: 1, borderWidth: 1 }}>
-      <View style={{ width: "20%", height: 100, backgroundColor: "red" }} />
-      <View style={{ width: "30%", height: 100, backgroundColor: "yellow" }} />
-      <View style={{ width: "50%", height: "50%", backgroundColor: "green" }} />
+    <View style={{ flex: 1 }}>
+      <View style={pianoStyle} />
+      <View style={pianoStyle} />
+      <View style={pianoStyle} />
+      <View style={pianoStyle} />
+      <View style={pianoStyle} />
+      <View style={pianoStyle} />
+      <View style={pianoStyle} />
+      <View style={pianoStyle} />
     </View>
   );
 };
