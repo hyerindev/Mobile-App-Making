@@ -21,6 +21,7 @@ const SOUNDS = [
   require("@/assets/note12.mp3"),
 ] as const;
 const WHITE_KEYS = [0, 2, 4, 5, 7, 9, 11, 12] as const;
+const BLACK_KEYS = [1, 3, 6, 8, 10] as const;
 
 const Index = () => {
   const players = SOUNDS.map((src) => useAudioPlayer(src));
@@ -31,6 +32,17 @@ const Index = () => {
     players[i].seekTo(0);
     players[i].play();
   }
+  function handleTouchStart(i: number) {
+    play(i);
+    setPressed((prev) => new Set(prev).add(i));
+  }
+  function handleTouchEnd(i: number) {
+    setPressed((prev) => {
+      const next = new Set(prev);
+      next.delete(i);
+      return next;
+    });
+  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -39,17 +51,24 @@ const Index = () => {
           <View
             key={i}
             style={{ flex: 1, margin: 5, backgroundColor: pressed.has(i) ? "rgba(100, 100, 100, 0.3)" : "transparent" }}
-            onTouchStart={() => {
-              play(i);
-              setPressed((prev) => new Set(prev).add(i));
+            onTouchStart={() => handleTouchStart(i)}
+            onTouchEnd={() => handleTouchEnd(i)}
+          />
+        ))}
+        {BLACK_KEYS.map((i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              right: 0,
+              top: `${i * 7.35}%`,
+
+              width: "55%",
+              height: "7.35%",
+              backgroundColor: pressed.has(i) ? "rgba(255, 255, 255, 0.3)" : "transparent",
             }}
-            onTouchEnd={() =>
-              setPressed((prev) => {
-                const next = new Set(prev);
-                next.delete(i);
-                return next;
-              })
-            }
+            onTouchStart={() => handleTouchStart(i)}
+            onTouchEnd={() => handleTouchEnd(i)}
           />
         ))}
       </ImageBackground>
