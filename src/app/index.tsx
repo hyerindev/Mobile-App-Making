@@ -31,6 +31,17 @@ const Index = () => {
     players[i].seekTo(0);
     players[i].play();
   }
+  function handleTouchStart(i: number) {
+    play(i);
+    setPressed((prev) => new Set(prev).add(i));
+  }
+  function handleTouchEnd(i: number) {
+    setPressed((prev) => {
+      const next = new Set(prev);
+      next.delete(i);
+      return next;
+    });
+  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -39,17 +50,8 @@ const Index = () => {
           <View
             key={i}
             style={{ flex: 1, margin: 5, backgroundColor: pressed.has(i) ? "rgba(100, 100, 100, 0.3)" : "transparent" }}
-            onTouchStart={() => {
-              play(i);
-              setPressed((prev) => new Set(prev).add(i));
-            }}
-            onTouchEnd={() =>
-              setPressed((prev) => {
-                const next = new Set(prev);
-                next.delete(i);
-                return next;
-              })
-            }
+            onTouchStart={() => handleTouchStart(i)}
+            onTouchEnd={() => handleTouchEnd(i)}
           />
         ))}
       </ImageBackground>
