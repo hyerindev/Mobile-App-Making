@@ -21,6 +21,7 @@ const SOUNDS = [
   require("@/assets/note12.mp3"),
 ] as const;
 const WHITE_KEYS = [0, 2, 4, 5, 7, 9, 11, 12] as const;
+const BLACK_KEYS = [1, 3, 6, 8, 10] as const;
 
 const Index = () => {
   const players = SOUNDS.map((src) => useAudioPlayer(src));
@@ -50,6 +51,22 @@ const Index = () => {
           <View
             key={i}
             style={{ flex: 1, margin: 5, backgroundColor: pressed.has(i) ? "rgba(100, 100, 100, 0.3)" : "transparent" }}
+            onTouchStart={() => handleTouchStart(i)}
+            onTouchEnd={() => handleTouchEnd(i)}
+          />
+        ))}
+        {BLACK_KEYS.map((i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              right: 0,
+              top: `${i * 7.4}%`,
+
+              width: "55%",
+              height: "7.4%",
+              backgroundColor: pressed.has(i) ? "rgba(255, 255, 255, 0.3)" : "transparent",
+            }}
             onTouchStart={() => handleTouchStart(i)}
             onTouchEnd={() => handleTouchEnd(i)}
           />
