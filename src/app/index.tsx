@@ -2,7 +2,7 @@ import { useAudioPlayer } from "expo-audio";
 import { useState } from "react";
 import { ImageBackground, View } from "react-native";
 
-const IMAGE = {
+const IMAGES = {
   keyboard: require("@/assets/keyboard.png"),
 } as const;
 const SOUNDS = [
@@ -34,7 +34,7 @@ const Index = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <ImageBackground style={{ width: "100%", height: "100%" }} resizeMode="stretch" source={IMAGE["keyboard"]}>
+      <ImageBackground style={{ width: "100%", height: "100%" }} resizeMode="stretch" source={IMAGES["keyboard"]}>
         {WHITE_KEYS.map((i) => (
           <View
             key={i}
