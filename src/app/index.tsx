@@ -1,35 +1,50 @@
 import type { ReactElement } from "react";
+import { useState } from "react";
 import type { TextStyle } from "react-native";
-import { Text, View } from "react-native";
+import { Button, Text, TextInput, View } from "react-native";
 
-const textStyle: TextStyle = {
+const inputStyle: TextStyle = {
   fontSize: 20,
   borderWidth: 1,
-  borderColor: "gray",
   flex: 1,
   padding: 5,
   margin: 2,
 };
 
 const N: string[] = ["Ewha", "June", "Jane", "Nick"];
-const P: number[] = [1234, 3347, 1111, 1212];
-
-const L: ReactElement[] = [];
-
-for (let i = 0; i < N.length; i++) {
-  const a = (
-    <View style={{ flexDirection: "row" }}>
-      <Text style={textStyle}>{N[i]}</Text>
-      <Text style={textStyle}>{P[i]}</Text>
-    </View>
-  );
-  L.push(a);
-}
+const P: (number | string)[] = [1234, 3347, 1111, 1212];
 
 const Index = () => {
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [refresh, setRefresh] = useState<number>(0);
+
+  function add_item() {
+    N.push(name);
+    P.push(phone);
+    console.log(N, P);
+    setRefresh(refresh + 1);
+  }
+
+  var L: ReactElement[] = [];
+
+  for (let i = 0; i < N.length; i++) {
+    const a = (
+      <Text key={N[i]} style={{ fontSize: 20 }}>
+        {N[i]} : {P[i]}
+      </Text>
+    );
+    L.push(a);
+  }
+
   return (
     <View style={{ marginTop: 30 }}>
       <Text style={{ fontSize: 40 }}>Phone Book</Text>
+      <View style={{ margin: 10, flexDirection: "row" }}>
+        <TextInput style={inputStyle} onChangeText={setName} />
+        <TextInput style={inputStyle} onChangeText={setPhone} />
+        <Button title="   Add   " onPress={add_item} />
+      </View>
       {L}
     </View>
   );
