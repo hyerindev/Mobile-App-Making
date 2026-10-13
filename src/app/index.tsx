@@ -10,6 +10,10 @@ const inputStyle: TextStyle = {
   padding: 5,
   margin: 2,
 };
+const textStyle: TextStyle = {
+  ...inputStyle,
+  borderColor: "gray",
+};
 
 const N: string[] = ["Ewha", "June", "Jane", "Nick"];
 const P: (number | string)[] = [1234, 3347, 1111, 1212];
@@ -30,9 +34,10 @@ const Index = () => {
 
   for (let i = 0; i < N.length; i++) {
     const a = (
-      <Text key={N[i]} style={{ fontSize: 20 }}>
-        {N[i]} : {P[i]}
-      </Text>
+      <View key={N[i]} style={{ flexDirection: "row" }}>
+        <Text style={textStyle}>{N[i]}</Text>
+        <Text style={textStyle}>{P[i]}</Text>
+      </View>
     );
     L.push(a);
   }
