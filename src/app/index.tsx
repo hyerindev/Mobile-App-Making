@@ -1,18 +1,22 @@
 import type { ReactElement } from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text } from "react-native";
 
 const L: ReactElement[] = [];
 
-for (let i = 0; i < 10; i++) {
-  L.push(
-    <Text>
-      {i} {i * i}
-    </Text>,
-  );
+for (let i = 2; i < 10; i++) {
+  for (let j = 1; j < 10; j++) {
+    L.push(
+      <Text key={`${i}_${j}`}>
+        {i} × {j} = {i * j}
+      </Text>,
+    );
+  }
 }
 
 const Index = () => {
-  return <View style={{ marginTop: 30 }}>{L}</View>;
+  return (
+    <ScrollView style={{ marginTop: 30, marginBottom: 30 }}>{L}</ScrollView>
+  );
 };
 
 export default Index;
