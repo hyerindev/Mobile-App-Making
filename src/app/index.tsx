@@ -34,9 +34,11 @@ const Index = () => {
   }
 
   function popItem() {
-    const temp = [...dummy];
-    temp.pop();
-    setDummy(temp);
+    setDummy((prev) => {
+      const temp = [...prev];
+      temp.pop();
+      return temp;
+    });
   }
 
   return (
