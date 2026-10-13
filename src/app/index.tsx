@@ -1,17 +1,13 @@
-import { Image, Text, View } from "react-native";
+import type { ReactElement } from "react";
+import { Text, View } from "react-native";
 
-const L = [<Text>Hello</Text>, <Text>Ewha</Text>];
+const L: ReactElement[] = [];
 
 for (let i = 0; i < 10; i++) {
-  L.push(<Text>count {i}</Text>);
-}
-
-for (let i = 0; i < 3; i++) {
   L.push(
-    <Image
-      style={{ width: 100, height: 100 }}
-      source={require("@/assets/cat-icon.png")}
-    />,
+    <Text>
+      {i} {i * i}
+    </Text>,
   );
 }
 
