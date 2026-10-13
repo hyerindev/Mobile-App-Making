@@ -26,7 +26,12 @@ const Index = () => {
   function add_item() {
     N.push(name);
     P.push(phone);
-    console.log(N, P);
+    setRefresh(refresh + 1);
+  }
+
+  function del_item() {
+    N.pop();
+    P.pop();
     setRefresh(refresh + 1);
   }
 
@@ -45,10 +50,11 @@ const Index = () => {
   return (
     <View style={{ marginTop: 30 }}>
       <Text style={{ fontSize: 40 }}>Phone Book</Text>
-      <View style={{ margin: 10, flexDirection: "row" }}>
+      <View style={{ margin: 10, flexDirection: "row", gap: 4 }}>
         <TextInput style={inputStyle} onChangeText={setName} />
         <TextInput style={inputStyle} onChangeText={setPhone} />
-        <Button title="   Add   " onPress={add_item} />
+        <Button title="Add" onPress={add_item} />
+        <Button title="DEL" onPress={del_item} />
       </View>
       {L}
     </View>
