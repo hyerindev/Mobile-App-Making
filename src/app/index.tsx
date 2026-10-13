@@ -1,21 +1,45 @@
 import type { ReactElement } from "react";
-import { ScrollView, Text } from "react-native";
+import { Text, View } from "react-native";
 
-const L: ReactElement[] = [];
+const rows: ReactElement[] = [];
 
-for (let i = 2; i < 10; i++) {
-  for (let j = 1; j < 10; j++) {
-    L.push(
-      <Text key={`${i}_${j}`}>
-        {i} × {j} = {i * j}
+for (let r = 2; r <= 6; r += 4) {
+  const cols: ReactElement[] = [];
+
+  for (let d = r; d < r + 4; d++) {
+    const lines: ReactElement[] = [];
+    lines.push(
+      <Text key={0} style={{ fontSize: 18, fontWeight: "bold" }}>
+        {d}단
       </Text>,
     );
+
+    for (let k = 1; k <= 9; k++) {
+      lines.push(
+        <Text key={k} style={{ fontSize: 14 }}>
+          {d} × {k} = {d * k}
+        </Text>,
+      );
+    }
+    cols.push(
+      <View key={d} style={{ flex: 1, borderWidth: 1, margin: 2, padding: 5 }}>
+        {lines}
+      </View>,
+    );
   }
+  rows.push(
+    <View key={r} style={{ flexDirection: "row" }}>
+      {cols}
+    </View>,
+  );
 }
 
 const Index = () => {
   return (
-    <ScrollView style={{ marginTop: 30, marginBottom: 30 }}>{L}</ScrollView>
+    <View style={{ marginTop: 30 }}>
+      <Text style={{ fontSize: 40 }}>구구단</Text>
+      {rows}
+    </View>
   );
 };
 
