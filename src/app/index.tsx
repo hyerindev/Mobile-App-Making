@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ViewStyle } from "react-native";
+import type { TextStyle, ViewStyle } from "react-native";
 import { Button, Text, View } from "react-native";
 
 const circleStyle: ViewStyle = {
@@ -55,6 +55,12 @@ const Dice = ({ num }: { num: DiceNumber }) => {
 
 ///////////////////////////////////////////
 
+const textStyle: TextStyle = {
+  textAlign: "center",
+  fontSize: 20,
+  lineHeight: 30,
+};
+
 const Index = () => {
   const [a, setA] = useState<DiceNumber>(1);
   const [b, setB] = useState<DiceNumber>(1);
@@ -65,15 +71,7 @@ const Index = () => {
 
   return (
     <View style={{ alignItems: "center", gap: 24, paddingTop: 30 }}>
-      <Text
-        style={{
-          textAlign: "center",
-          fontSize: 20,
-          lineHeight: 30,
-        }}
-      >
-        {`Double Dice\n${a + b}`}
-      </Text>
+      <Text style={textStyle}>{`Double Dice\n${a + b}`}</Text>
       <View style={{ flexDirection: "row", gap: 24 }}>
         <Dice num={a} />
         <Dice num={b} />
