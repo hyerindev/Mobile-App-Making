@@ -18,6 +18,8 @@ const Blank = () => {
 
 ///////////////////////////
 
+type DiceNumber = 1 | 2 | 3 | 4 | 5 | 6;
+
 const diceFaces = [
   [false, false, false, false, true, false, false, false, false],
   [true, false, false, false, false, false, false, false, true],
@@ -27,7 +29,7 @@ const diceFaces = [
   [true, false, true, true, false, true, true, false, true],
 ] as const;
 
-const Dice = ({ num }: { num: number }) => {
+const Dice = ({ num }: { num: DiceNumber }) => {
   return (
     <View
       style={{
@@ -54,7 +56,7 @@ const Dice = ({ num }: { num: number }) => {
 ///////////////////////////////////////////
 
 const Index = () => {
-  const [N, setN] = useState<number>(1);
+  const [N, setN] = useState<DiceNumber>(1);
 
   return (
     <View style={{ flex: 1, gap: 30, paddingTop: 30, paddingHorizontal: 100 }}>
@@ -71,7 +73,7 @@ const Index = () => {
       <Button
         title="Roll"
         onPress={() => {
-          setN(Math.floor(Math.random() * 6 + 1));
+          setN(Math.floor(Math.random() * 6 + 1) as DiceNumber);
         }}
       />
     </View>
