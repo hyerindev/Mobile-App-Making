@@ -5,7 +5,7 @@ const Index = () => {
     <View
       style={{
         flex: 1,
-        justifyContent: "space-evenly",
+        justifyContent: "space-between",
         alignItems: "flex-start",
       }}
     >
