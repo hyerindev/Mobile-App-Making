@@ -23,47 +23,68 @@ const Blank = () => {
 
 ///////////////////////////
 
-const Dice = () => {
-  return (
-    <View style={stDice}>
-      <View style={{ flexDirection: "row" }}>
-        <Circle />
-        <Circle />
-        <Circle />
+const Dice = (props: { num: number }) => {
+  if (props.num == 1) {
+    return (
+      <View style={stDice}>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Blank />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Circle />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Blank />
+          <Blank />
+        </View>
       </View>
-      <View style={{ flexDirection: "row" }}>
-        <Circle />
-        <Circle />
-        <Circle />
+    );
+  } else if (props.num == 2) {
+    return (
+      <View style={stDice}>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Blank />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Blank />
+          <Circle />
+        </View>
       </View>
-      <View style={{ flexDirection: "row" }}>
-        <Circle />
-        <Circle />
-        <Circle />
+    );
+  } else {
+    return (
+      <View style={stDice}>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Circle />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Circle />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Circle />
+        </View>
       </View>
-    </View>
-  );
-};
-const Dice6 = () => {
-  return (
-    <View style={stDice}>
-      <View style={{ flexDirection: "row" }}>
-        <Circle />
-        <Blank />
-        <Circle />
-      </View>
-      <View style={{ flexDirection: "row" }}>
-        <Circle />
-        <Blank />
-        <Circle />
-      </View>
-      <View style={{ flexDirection: "row" }}>
-        <Circle />
-        <Blank />
-        <Circle />
-      </View>
-    </View>
-  );
+    );
+  }
 };
 
 ///////////////////////////////////////////
@@ -71,9 +92,7 @@ const Dice6 = () => {
 const Index = () => {
   return (
     <View style={{ flex: 1, alignItems: "center" }}>
-      <Dice />
-      <View style={{ height: 20 }} />
-      <Dice6 />
+      <Dice num={1} />
     </View>
   );
 };
