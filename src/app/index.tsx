@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { ViewStyle } from "react-native";
 import { Button, Text, View } from "react-native";
 
-const stCircle: ViewStyle = {
+const circleStyle: ViewStyle = {
   width: "30%",
   height: "30%",
   borderRadius: "50%",
@@ -10,10 +10,10 @@ const stCircle: ViewStyle = {
   backgroundColor: "rgb(0, 200, 255)",
 };
 const Circle = () => {
-  return <View style={stCircle} />;
+  return <View style={circleStyle} />;
 };
 const Blank = () => {
-  return <View style={{ ...stCircle, opacity: 0 }} />;
+  return <View style={{ ...circleStyle, opacity: 0 }} />;
 };
 
 ///////////////////////////
