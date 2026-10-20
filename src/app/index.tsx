@@ -4,6 +4,7 @@ import { View } from "react-native";
 const stCircle: ViewStyle = {
   width: 300,
   height: 200,
+  borderRadius: 50,
   backgroundColor: "red",
   borderWidth: 1,
 };
