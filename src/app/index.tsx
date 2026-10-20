@@ -1,24 +1,12 @@
-import type { TextStyle } from "react-native";
-import { Text, View } from "react-native";
-
-const stBigBlue: TextStyle = {
-  color: "blue",
-  fontWeight: "bold",
-  fontSize: 30,
-};
-const stRed: TextStyle = {
-  color: "red",
-};
+import { Button, Text, View } from "react-native";
 
 const Index = () => {
   return (
     <View>
-      <Text style={stRed}>just red</Text>
-      <Text style={stBigBlue}>just bigBlue</Text>
-      <Text style={[stBigBlue, stRed]}>bigBlue, then red</Text>
-      <Text style={[stBigBlue, stRed, { fontSize: 20 }]}>
-        bigBlue, then red, then 20
-      </Text>
+      <Text style={{ fontSize: 30, backgroundColor: "cyan" }}>ABC</Text>
+      <Text style={{ fontSize: 40, backgroundColor: "yellow" }}>ABC</Text>
+      <Text style={{ fontSize: 50, backgroundColor: "lightgreen" }}>ABC</Text>
+      <Button title="Touch Me" />
     </View>
   );
 };
