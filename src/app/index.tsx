@@ -3,7 +3,11 @@ import { Button, Text, View } from "react-native";
 const Index = () => {
   return (
     <View
-      style={{ flex: 1, justifyContent: "center", alignItems: "flex-start" }}
+      style={{
+        flex: 1,
+        justifyContent: "space-evenly",
+        alignItems: "flex-start",
+      }}
     >
       <Text style={{ fontSize: 30, backgroundColor: "cyan" }}>ABC</Text>
       <Text style={{ fontSize: 40, backgroundColor: "yellow" }}>ABC</Text>
