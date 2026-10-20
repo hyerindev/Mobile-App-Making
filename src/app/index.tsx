@@ -56,26 +56,37 @@ const Dice = ({ num }: { num: DiceNumber }) => {
 ///////////////////////////////////////////
 
 const Index = () => {
-  const [N, setN] = useState<DiceNumber>(1);
+  const [a, setA] = useState<DiceNumber>(1);
+  const [b, setB] = useState<DiceNumber>(1);
+
+  function randomDiceNumber(): DiceNumber {
+    return Math.floor(Math.random() * 6 + 1) as DiceNumber;
+  }
 
   return (
-    <View style={{ flex: 1, gap: 30, paddingTop: 30, paddingHorizontal: 100 }}>
+    <View style={{ alignItems: "center", gap: 24, paddingTop: 30 }}>
       <Text
         style={{
           textAlign: "center",
-          margin: 5,
           fontSize: 20,
+          lineHeight: 30,
         }}
       >
-        Dice
+        {`Double Dice\n${a + b}`}
       </Text>
-      <Dice num={N} />
-      <Button
-        title="Roll"
-        onPress={() => {
-          setN(Math.floor(Math.random() * 6 + 1) as DiceNumber);
-        }}
-      />
+      <View style={{ flexDirection: "row", gap: 24 }}>
+        <Dice num={a} />
+        <Dice num={b} />
+      </View>
+      <View style={{ width: 160 }}>
+        <Button
+          title="Roll"
+          onPress={() => {
+            setA(randomDiceNumber());
+            setB(randomDiceNumber());
+          }}
+        />
+      </View>
     </View>
   );
 };
