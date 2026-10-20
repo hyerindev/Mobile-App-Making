@@ -2,9 +2,9 @@ import type { ViewStyle } from "react-native";
 import { View } from "react-native";
 
 const stCircle: ViewStyle = {
-  width: 300,
+  width: 200,
   height: 200,
-  borderRadius: 50,
+  borderRadius: 100,
   backgroundColor: "red",
   borderWidth: 1,
 };
