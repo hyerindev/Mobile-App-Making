@@ -44,7 +44,7 @@ const Dice = ({ num }: { num: number }) => {
         backgroundColor: "rgb(255, 240, 200)",
       }}
     >
-      {diceFaces[num].map((item, index) =>
+      {diceFaces[num - 1].map((item, index) =>
         item ? <Circle key={index} /> : <Blank key={index} />,
       )}
     </View>
