@@ -23,7 +23,7 @@ const Blank = () => {
 
 ///////////////////////////
 
-const Dice = (props: { num: number }) => {
+const Dice = (props: { num: 1 | 2 | 3 | 4 | 5 | 6 }) => {
   if (props.num == 1) {
     return (
       <View style={stDice}>
@@ -64,7 +64,67 @@ const Dice = (props: { num: number }) => {
         </View>
       </View>
     );
-  } else {
+  } else if (props.num == 3) {
+    return (
+      <View style={stDice}>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Circle />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Blank />
+          <Circle />
+        </View>
+      </View>
+    );
+  } else if (props.num == 4) {
+    return (
+      <View style={stDice}>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Circle />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Blank />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Circle />
+        </View>
+      </View>
+    );
+  } else if (props.num == 5) {
+    return (
+      <View style={stDice}>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Circle />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Blank />
+          <Circle />
+          <Blank />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Circle />
+          <Blank />
+          <Circle />
+        </View>
+      </View>
+    );
+  } else if (props.num == 6) {
     return (
       <View style={stDice}>
         <View style={{ flexDirection: "row" }}>
@@ -91,8 +151,10 @@ const Dice = (props: { num: number }) => {
 
 const Index = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center" }}>
+    <View style={{ flex: 1, justifyContent: "space-around", alignItems: "center" }}>
       <Dice num={1} />
+      <Dice num={2} />
+      <Dice num={3} />
     </View>
   );
 };
