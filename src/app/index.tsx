@@ -3,15 +3,23 @@ import type { TextStyle, ViewStyle } from "react-native";
 import { Button, Text, View } from "react-native";
 
 const stCircle: ViewStyle = {
-  width: 40,
-  height: 40,
-  margin: 2,
+  width: "30%",
+  height: "30%",
   borderRadius: "50%",
   borderWidth: 1,
   backgroundColor: "rgb(0, 200, 255)",
 };
 const stDice: ViewStyle = {
+  flexDirection: "row",
+  flexWrap: "wrap",
+  gap: 4,
+  justifyContent: "center",
+  alignContent: "center",
+
+  width: 160,
+  height: 160,
   padding: 10,
+
   backgroundColor: "rgb(255, 240, 200)",
 };
 const stText: TextStyle = {
@@ -33,121 +41,85 @@ const Dice = (props: { num: number }) => {
   if (props.num == 1) {
     return (
       <View style={stDice}>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Blank />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Circle />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Blank />
-          <Blank />
-        </View>
+        <Blank />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Circle />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Blank />
       </View>
     );
   } else if (props.num == 2) {
     return (
       <View style={stDice}>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Blank />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Blank />
-          <Circle />
-        </View>
+        <Circle />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Circle />
       </View>
     );
   } else if (props.num == 3) {
     return (
       <View style={stDice}>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Circle />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Blank />
-          <Circle />
-        </View>
+        <Circle />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Circle />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Circle />
       </View>
     );
   } else if (props.num == 4) {
     return (
       <View style={stDice}>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Circle />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Blank />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Circle />
-        </View>
+        <Circle />
+        <Blank />
+        <Circle />
+        <Blank />
+        <Blank />
+        <Blank />
+        <Circle />
+        <Blank />
+        <Circle />
       </View>
     );
   } else if (props.num == 5) {
     return (
       <View style={stDice}>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Circle />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Blank />
-          <Circle />
-          <Blank />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Circle />
-        </View>
+        <Circle />
+        <Blank />
+        <Circle />
+        <Blank />
+        <Circle />
+        <Blank />
+        <Circle />
+        <Blank />
+        <Circle />
       </View>
     );
   } else if (props.num == 6) {
     return (
       <View style={stDice}>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Circle />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Circle />
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <Circle />
-          <Blank />
-          <Circle />
-        </View>
+        <Circle />
+        <Blank />
+        <Circle />
+        <Circle />
+        <Blank />
+        <Circle />
+        <Circle />
+        <Blank />
+        <Circle />
       </View>
     );
   }
@@ -159,19 +131,15 @@ const Index = () => {
   const [N, setN] = useState<number>(1);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, gap: 30, paddingTop: 30, paddingHorizontal: 100 }}>
       <Text style={stText}>Dice</Text>
-      <View style={{ flexDirection: "row", justifyContent: "center" }}>
-        <Dice num={N} />
-      </View>
-      <View style={{ marginHorizontal: 100, marginVertical: 30 }}>
-        <Button
-          title="Roll"
-          onPress={() => {
-            setN(Math.floor(Math.random() * 6 + 1));
-          }}
-        />
-      </View>
+      <Dice num={N} />
+      <Button
+        title="Roll"
+        onPress={() => {
+          setN(Math.floor(Math.random() * 6 + 1));
+        }}
+      />
     </View>
   );
 };
