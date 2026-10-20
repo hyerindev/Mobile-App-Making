@@ -37,92 +37,23 @@ const Blank = () => {
 
 ///////////////////////////
 
-const Dice = (props: { num: number }) => {
-  if (props.num == 1) {
-    return (
-      <View style={stDice}>
-        <Blank />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Circle />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Blank />
-      </View>
-    );
-  } else if (props.num == 2) {
-    return (
-      <View style={stDice}>
-        <Circle />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Circle />
-      </View>
-    );
-  } else if (props.num == 3) {
-    return (
-      <View style={stDice}>
-        <Circle />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Circle />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Circle />
-      </View>
-    );
-  } else if (props.num == 4) {
-    return (
-      <View style={stDice}>
-        <Circle />
-        <Blank />
-        <Circle />
-        <Blank />
-        <Blank />
-        <Blank />
-        <Circle />
-        <Blank />
-        <Circle />
-      </View>
-    );
-  } else if (props.num == 5) {
-    return (
-      <View style={stDice}>
-        <Circle />
-        <Blank />
-        <Circle />
-        <Blank />
-        <Circle />
-        <Blank />
-        <Circle />
-        <Blank />
-        <Circle />
-      </View>
-    );
-  } else if (props.num == 6) {
-    return (
-      <View style={stDice}>
-        <Circle />
-        <Blank />
-        <Circle />
-        <Circle />
-        <Blank />
-        <Circle />
-        <Circle />
-        <Blank />
-        <Circle />
-      </View>
-    );
-  }
+const diceFaces = [
+  [false, false, false, false, true, false, false, false, false],
+  [true, false, false, false, false, false, false, false, true],
+  [true, false, false, false, true, false, false, false, true],
+  [true, false, true, false, false, false, true, false, true],
+  [true, false, true, false, true, false, true, false, true],
+  [true, false, true, true, false, true, true, false, true],
+] as const;
+
+const Dice = ({ num }: { num: number }) => {
+  return (
+    <View style={stDice}>
+      {diceFaces[num].map((item, index) =>
+        item ? <Circle key={index} /> : <Blank key={index} />,
+      )}
+    </View>
+  );
 };
 
 ///////////////////////////////////////////
