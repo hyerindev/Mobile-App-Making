@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { TextStyle, ViewStyle } from "react-native";
-import { Button, Text, View } from "react-native";
+import { Button, ScrollView, Text, View } from "react-native";
 
 const circleStyle: ViewStyle = {
   width: "30%",
@@ -64,27 +64,43 @@ const textStyle: TextStyle = {
 const Index = () => {
   const [a, setA] = useState<DiceNumber>(1);
   const [b, setB] = useState<DiceNumber>(1);
+  const [history, setHistory] = useState<string[]>([]);
 
-  function randomDiceNumber(): DiceNumber {
-    return Math.floor(Math.random() * 6 + 1) as DiceNumber;
+  function handlePress() {
+    const nextNumberList: DiceNumber[] = [];
+    for (let index = 0; index < 2; index++)
+      nextNumberList.push(Math.floor(Math.random() * 6 + 1) as DiceNumber);
+
+    setA(nextNumberList[0]);
+    setB(nextNumberList[1]);
+
+    setHistory((prev) => [
+      ...prev,
+      `${nextNumberList[0]}+${nextNumberList[1]}=${nextNumberList[0] + nextNumberList[1]}`,
+    ]);
   }
 
   return (
-    <View style={{ alignItems: "center", gap: 24, paddingTop: 30 }}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        gap: 24,
+        paddingTop: 30,
+      }}
+    >
       <Text style={textStyle}>{`Double Dice\n${a + b}`}</Text>
       <View style={{ flexDirection: "row", gap: 24 }}>
         <Dice num={a} />
         <Dice num={b} />
       </View>
       <View style={{ width: 160 }}>
-        <Button
-          title="Roll"
-          onPress={() => {
-            setA(randomDiceNumber());
-            setB(randomDiceNumber());
-          }}
-        />
+        <Button title="Roll" onPress={handlePress} />
       </View>
+      <Text style={{ ...textStyle, marginBottom: -24 }}>History</Text>
+      <ScrollView style={{ flex: 1, width: "100%" }}>
+        <Text style={textStyle}>{history.map((item) => `${item}\n`)}</Text>
+      </ScrollView>
     </View>
   );
 };
