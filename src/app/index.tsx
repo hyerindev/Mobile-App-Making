@@ -1,5 +1,6 @@
-import type { ViewStyle } from "react-native";
-import { View } from "react-native";
+import { useState } from "react";
+import type { TextStyle, ViewStyle } from "react-native";
+import { Button, Text, View } from "react-native";
 
 const stCircle: ViewStyle = {
   width: 40,
@@ -8,6 +9,11 @@ const stCircle: ViewStyle = {
   backgroundColor: "rgb(0, 200, 255)",
   borderWidth: 1,
   margin: 2,
+};
+const stText: TextStyle = {
+  textAlign: "center",
+  fontSize: 20,
+  margin: 5,
 };
 const stDice: ViewStyle = {
   backgroundColor: "rgb(255, 240, 200)",
@@ -23,7 +29,7 @@ const Blank = () => {
 
 ///////////////////////////
 
-const Dice = (props: { num: 1 | 2 | 3 | 4 | 5 | 6 }) => {
+const Dice = (props: { num: number }) => {
   if (props.num == 1) {
     return (
       <View style={stDice}>
@@ -150,11 +156,22 @@ const Dice = (props: { num: 1 | 2 | 3 | 4 | 5 | 6 }) => {
 ///////////////////////////////////////////
 
 const Index = () => {
+  const [N, setN] = useState<number>(1);
+
   return (
-    <View style={{ flex: 1, justifyContent: "space-around", alignItems: "center" }}>
-      <Dice num={1} />
-      <Dice num={2} />
-      <Dice num={3} />
+    <View style={{ flex: 1 }}>
+      <Text style={stText}>Dice</Text>
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
+        <Dice num={N} />
+      </View>
+      <View style={{ marginHorizontal: 100, marginVertical: 30 }}>
+        <Button
+          title="Roll"
+          onPress={() => {
+            setN(Math.floor(Math.random() * 6 + 1));
+          }}
+        />
+      </View>
     </View>
   );
 };
