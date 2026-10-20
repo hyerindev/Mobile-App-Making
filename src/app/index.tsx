@@ -5,26 +5,26 @@ import { Button, Text, View } from "react-native";
 const stCircle: ViewStyle = {
   width: 40,
   height: 40,
-  borderRadius: 20,
-  backgroundColor: "rgb(0, 200, 255)",
-  borderWidth: 1,
   margin: 2,
+  borderRadius: "50%",
+  borderWidth: 1,
+  backgroundColor: "rgb(0, 200, 255)",
+};
+const stDice: ViewStyle = {
+  padding: 10,
+  backgroundColor: "rgb(255, 240, 200)",
 };
 const stText: TextStyle = {
   textAlign: "center",
-  fontSize: 20,
   margin: 5,
-};
-const stDice: ViewStyle = {
-  backgroundColor: "rgb(255, 240, 200)",
-  padding: 10,
+  fontSize: 20,
 };
 
 const Circle = () => {
   return <View style={stCircle} />;
 };
 const Blank = () => {
-  return <View style={[stCircle, { backgroundColor: undefined, borderWidth: 0 }]} />;
+  return <View style={{ ...stCircle, opacity: 0 }} />;
 };
 
 ///////////////////////////
